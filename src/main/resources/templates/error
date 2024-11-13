@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>error</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            text-align: center;
+            background-color: #f8f9fa; /* Optional: Light background color */
+        }
+
+        h1 {
+            font-size: 3em; /* Larger text */
+            color: #333; /* Optional: Change text color */
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 100%; /* Make the image occupy 90% of the viewport width */
+            max-width: 1200px; /* Set a maximum width for large screens */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+
+    <div><img src="/images/tintp.jpg" alt =""></div>
+
+    <a href="index.html">Go Back</a>
+</body>
+</html>

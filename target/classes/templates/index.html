@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form method="POST" action ="/submit" data-th-object="${task}">
+        <table>
+            <tr>
+                <td>Task Name: </td>
+                <td><input type = "text" data-th-field ="*{name}">
+                    <span 
+                    data-th-if="${#fields.hasErrors('name')}"
+                    data-th-errors="*{name}" data-th-errorclass="error">
+                     </span>
+                
+                </td>
+            </tr>
+            <tr>
+                <td>Priority: </td>
+                <td><select id ="priority" data-th-field="*{priority}">
+                    <option value="low">low</option>
+                    <option value="med">med</option>
+                    <option value="high">high</option>
+                </td>
+            </tr>
+            <tr>
+                <td>Complete by </td>
+                <td><input type = "datetime-local" data-th-field ="*{time}" min="2024-11-13">
+                    <span 
+                    data-th-if="${#fields.hasErrors('time')}"
+                    data-th-errors="*{time}" data-th-errorclass="error">
+                     </span>
+                </td>
+            </tr>
+            <tr><td><button type = "submit">Add</button></td> </tr>
+    
+        </table>
+    </form>
+
+
+    <div th:if="${isFree}"><h1>Looks like you are FREE! Run!</h1></div>
+
+    <div th:if="${!isFree}">
+        <table border ="1">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Priority</th>
+                    <th>Complete By</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="task : ${tasks}">
+                    <td th:text="${task.name}"></td>
+                    <td th:text="${task.priority}"></td>
+                    <td th:text="${task.time}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <form method="POST" action="/exit">
+            <button type="submit">Save !</button>
+        </form>
+    </div>
+</body>
+</html>
